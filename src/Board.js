@@ -91,7 +91,12 @@ class Board extends Component {
 
   render() {
     if (this.state.hasWon) {
-      return <h1>YOU WON!!!</h1>;
+      return (
+        <div>
+          <span className="neon">YOU</span>
+          <span className="flux">Win!!</span>
+        </div>
+      );
     }
     // if the game is won, just show a winning msg & render nothing else
 
@@ -116,9 +121,15 @@ class Board extends Component {
       tblBoard.push(<tr key={y}>{row}</tr>);
     }
     return (
-      <table className="Board">
-        <tbody>{tblBoard}</tbody>
-      </table>
+      <>
+        <div className="Board-title">
+          <div className="neon">Lights</div>
+          <div className="flux">Out</div>
+        </div>
+        <table className="Board">
+          <tbody>{tblBoard}</tbody>
+        </table>
+      </>
     );
   }
 }
